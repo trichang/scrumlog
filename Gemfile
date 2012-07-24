@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'sqlite3'
 gem 'mysql2'
-
 gem 'devise'
+gem 'cancan'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -16,7 +18,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platform => :ruby
+  # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -36,19 +38,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-
-group :test do
-  gem "rspec-rails", "~> 2.0"
-  gem "capybara"
-  gem 'launchy'
-
-  gem "rr"
-  gem "cucumber"
-  gem "cucumber-rails"
-  gem "factory_girl_rails", "~> 3.0"
-
-  # To use debugger
-  # gem 'ruby-debug'
-end
+# gem 'debugger'

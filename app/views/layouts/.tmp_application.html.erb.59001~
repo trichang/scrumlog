@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Idscrum</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= csrf_meta_tag %> 
+
+<% if user_signed_in? %>
+Welcome <%= current_user.email %> 
+<%= link_to "Sign out", destroy_user_session_path, :confirm => "Are you sure you want to Sign Out?", :method => :delete %>
+
+	<% if can? :create, :product %>
+		<ul>
+			<li><%= link_to 'Products', :products %></li>
+		</ul>
+	<% end %>
+<% else %>
+<ul>
+	<li> <%= link_to 'Register', new_account_path() %> </li>
+	<li> <%= link_to 'Sign In', new_user_session_path %> </li>
+</ul>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

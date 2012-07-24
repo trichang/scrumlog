@@ -1,11 +1,8 @@
+
 class AppController < ApplicationController
-  before_filter :authenticate_user!
-  
-  def index
-    
+  def admin
   end
 
-  def admin
-    
+  def index
   end
 end

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @backlog.Description %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @backlog.points %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @backlog.priority %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @backlog.value %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @backlog.project %>
+</p>
+
+<p>
+  <b>Release:</b>
+  <%= @backlog.release %>
+</p>
+
+<p>
+  <b>Sprint:</b>
+  <%= @backlog.sprint %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @backlog.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_backlog_path(@backlog) %> |
+<%= link_to 'Back', backlogs_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @product.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Vision:</b>
+  <%= @product.vision %>
+</p>
+
+<%= link_to 'Edit Product', edit_product_path(@product) %>
+
+<h3>Listing releases</h3>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @releases.each do |release| %>
+  <tr>
+    <td><%= release.name %></td>
+    <td><%= link_to 'Show', release %></td>
+    <td><%= link_to 'Edit', edit_release_path(release) %></td>
+    <td><%= link_to 'Destroy', release, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Release', new_release_path %>
+
+<%= link_to 'Back', products_path %>

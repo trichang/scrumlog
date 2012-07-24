@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617121232) do
+ActiveRecord::Schema.define(:version => 20120723072953) do
 
   create_table "accounts", :force => true do |t|
     t.string   "subdomain"
@@ -19,13 +19,49 @@ ActiveRecord::Schema.define(:version => 20120617121232) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "backlogs", :force => true do |t|
+    t.text     "description"
+    t.integer  "points"
+    t.integer  "priority"
+    t.integer  "value"
+    t.integer  "product_id"
+    t.integer  "release_id"
+    t.integer  "sprint_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "backlogs", ["product_id"], :name => "index_backlogs_on_product_id"
+  add_index "backlogs", ["release_id"], :name => "index_backlogs_on_release_id"
+  add_index "backlogs", ["sprint_id"], :name => "index_backlogs_on_sprint_id"
+  add_index "backlogs", ["user_id"], :name => "index_backlogs_on_user_id"
+
   create_table "products", :force => true do |t|
-    t.string   "name"
     t.string   "code"
+    t.string   "name"
     t.string   "vision"
     t.integer  "account_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "releases", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "product_id"
+  end
+
+  create_table "sprints", :force => true do |t|
+    t.string   "name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "goal"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "product_id"
+    t.integer  "release_id"
   end
 
   create_table "users", :force => true do |t|
@@ -43,8 +79,10 @@ ActiveRecord::Schema.define(:version => 20120617121232) do
     t.datetime "updated_at",                             :null => false
     t.integer  "account_id"
     t.string   "account_role"
+    t.string   "full_name"
   end
 
-  add_index "users", ["email", "account_id", "reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

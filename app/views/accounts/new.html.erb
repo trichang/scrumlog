@@ -1,6 +1,6 @@
-<h1>Accounts#new</h1>
-<p>Find me in app/views/accounts/new.html.erb</p>
+<h1>New account</h1>
 
+<%# render 'form' %>
 <div id="content">
 <%= form_for @account do |f| %>
   <%= render "shared/error_messages", :target => @account %>
@@ -25,3 +25,7 @@
   <%= f.submit %>
 <% end %>
 </div>
+
+<%# link_to 'Back', accounts_path %>
+<%= link_to 'Back', :back %>
+

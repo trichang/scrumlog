@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Scrumlog::Application.load_tasks
+Idscrum::Application.load_tasks
